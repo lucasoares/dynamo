@@ -362,7 +362,7 @@ func (itr *scanIter) LastEvaluatedKey() PagingKey {
 		if itr.keyErr != nil {
 			// primaryKeys can fail if the credentials lack DescribeTable permissions
 			// in order to preserve backwards compatibility, we fall back to the old behavior and warn
-			// see: https://github.com/guregu/dynamo/pull/187#issuecomment-1045183901
+			// see: https://github.com/lucasoares/dynamo/pull/187#issuecomment-1045183901
 			// TODO(v2): rejigger this API.
 			itr.scan.table.db.log("dynamo: Warning:", itr.keyErr, "Returning a later LastEvaluatedKey.")
 			return itr.output.LastEvaluatedKey
